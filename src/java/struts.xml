@@ -1,0 +1,233 @@
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <constant name="struts.enable.DynamicMethodInvocation" value="false" />
+    <constant name="struts.devMode" value="false" />
+    <constant name="struts.custom.i18n.resources" value="ApplicationResources" />
+    <constant name="struts.action.excludePattern" value="/botdetectcaptcha"/>
+    <!-- Configuration for the default package. -->
+        
+    <package name="default" namespace="/" extends="struts-default,json-default">
+        
+      <result-types>
+         <result-type name="tiles" class="org.apache.struts2.views.tiles.TilesResult" />
+         <result-type name="json" class="org.apache.struts2.json.JSONResult"/>
+     </result-types>
+
+    <action name="*Link" method="{1}" class="com.action.LogingEx">
+        <result name="userlogin" type="tiles">userlogin.def</result>
+        <result name="userregister" type="tiles">userregister.def</result>
+        <result name="adminlogin" type="tiles">adminlogin.def</result>
+        <result name="adminhome" type="tiles">adminhome.def</result>
+        <result name="admindelete" type="tiles">admindelete.def</result>
+        <result name="adminupdate" type="tiles">adminupdate.def</result>
+        <result name="admininsert" type="tiles">admininsert.def</result>
+        <result name="adminview" type="tiles">adminview.def</result>
+        <result name="showcart" type="tiles">showcart.def</result>
+        <result name="userhome1" type="tiles">userhome1.def</result> 
+        <result name="userhome" type="tiles">userhome.def</result>
+        <result name="verifyuser" type="tiles">verifyuser.def</result>
+        <result name="feedback" type="tiles">feedback.def</result>
+        <result name="forgot" type="tiles">forgotpass.def</result>
+    </action>
+        
+    <action name="jsonsample" class="com.utilities.ReadData">
+             <result type="json" />
+        </action>
+        
+    <action name="forgotpassmail" class="com.action.Forgotpass">
+            <result name="success" type="tiles">forgotpass1.def</result>
+            <result name="input" type="tiles">forgotpass.def</result>
+        </action>
+   
+        <action name="feedback" class="com.action.FeedBack">
+            <result name="success" type="tiles">feedback1.def</result>
+            <result name="input" type="tiles">feedback.def</result>
+        </action>
+   
+        <action name="myorder" class="com.action.Myorder">
+            <result type="tiles">myorder.def</result>
+        </action>
+
+        <action name="search" class="com.action.Searchtext">
+            <result name="success" type="tiles">searchresult.def</result>
+            <result name="input" type="tiles">userhome.def</result>
+            <result name="error" type="tiles">nosearchresult.def</result>
+        </action>
+ 
+        <action name="updateprofile" class="com.action.Myprofile" method="updateProfile">
+            <result type="tiles">myprofile.def</result>
+            <result name="input" type="tiles">myprofile1.def</result>
+        </action>
+
+        <action name="myprofile" class="com.action.Myprofile1">
+            <result type="tiles">myprofile.def</result>
+        </action>
+        <action name="updateinfo" class="com.action.Myprofile" method="myProfile1">
+            <result type="tiles">myprofile1.def</result>
+            <result name="input" type="tiles">myprofile1.def</result>
+        </action>
+        <action name="allorder" class="com.action.Admin_view" method="getAllorders">
+            <result type="tiles">adminvieworders.def</result>
+        </action>
+        <action name="updatestatus?*" class="com.action.Admin_view" method="updateStatus">
+            <result type="tiles">adminvieworders.def</result>
+        </action>
+        <action name="adminLogin" class="com.action.action_Login" method="adminLogin">
+            <result name="success" type="tiles">adminhome.def</result>
+            <result name="error" type="tiles">adminlogin.def</result>
+            <result name="input" type="tiles">adminlogin.def</result>
+        </action>
+        
+        <action name="logOut" class="com.action.action_Logout" method="logOut">
+            <result type="tiles">adminlogin.def</result>
+        </action>
+        
+        <action name="checkout" class="com.action.Checkout">
+            <result name="success" type="tiles">checkout.def</result>
+            <result name="error" type="chain">viewcart</result>
+        </action>
+        
+        <action name="getProduct" class="com.action.Utility" method="getProduct">
+            <result name="success" type="tiles">admindelete1.def</result>
+        </action>
+        
+        <action name="insertProduct" class="com.action.action_ProductCRUD">
+            <interceptor-ref name="defaultStack"/>
+            <interceptor-ref name="fileUpload">
+                <param name="allowedTypes">image/jpg,image/png,image/JPEG,image/JPG,image/jpeg</param>
+                <param name="maximumSize">2012345</param>
+            </interceptor-ref>
+            <result name="success" type="tiles">admininsert.def</result>
+            <result name="input" type="tiles">admininsert.def</result>
+            <result name="input" type="tiles">admininsert.def</result>
+        </action> 
+        
+        <action name="deleteProduct?*" class="com.action.Admin_delete" method="deleteProduct">
+            <result name="success" type="tiles">admindelete1.def</result>
+        </action>
+        
+        <action name="gtpro_update" class="com.action.Admin_update" method="getProduct">
+            <result name="success" type="tiles">adminupdate1.def</result>
+        </action>
+        
+        <action name="updateProduct?*" class="com.action.Admin_update" method="updateProduct">
+            <result name="success" type="tiles">adminupdate2.def</result>
+        </action>
+        
+        <action name="updateProductfinal" class="com.action.Admin_update1" method="updateProductfinal">
+            <result name="success" type="tiles">adminupdate.def</result>
+            <result name="input" type="tiles">adminupdate2.def</result>
+        </action>
+        
+        <action name="adminView" class="com.action.Admin_view">
+            <result name="success" type="tiles">adminview.def</result>
+        </action>
+        
+        <action name="proPic" class="com.action.Admin_view" method="getProPic"/>
+        
+        
+        <action name="logging" class="com.action.User_logging" method="userLogin">
+            <result name="success" type="tiles">userhome.def</result>
+            <result name="error" type="tiles">userlogin.def</result>
+            <result name="input" type="tiles">userlogin.def</result>
+        </action>
+        
+        <action name="logout" class="com.action.action_Logout" method="logOut1">
+            <result type="tiles">userhome.def</result>
+        </action>
+        
+        
+        <action name="userregister" class="com.action.User_register">
+            <result name="success" type="tiles">userregister1.def</result>
+            <result name="input" type="tiles">userregister.def</result>
+            
+        </action>
+        
+        <action name="listproduct" class="com.action.Utility" method="getProduct">
+            <result name="success" type="tiles">userhome1.def</result>
+            <result name="input" type="redirect">${backurl}</result>
+        </action>
+
+        <action name="addcart" class="com.action.Cart">
+            <result name="success" type="tiles">userhome1.def</result>
+            <result name="error" type="tiles">userhome.def</result>
+        </action>
+        <action name="saddcart" class="com.action.Cart">
+            <result name="success" type="tiles">searchresult.def</result>
+            <result name="error" type="tiles">userhome.def</result>
+        </action>
+        <action name="paddcart" class="com.action.Cart">
+            <result name="success" type="redirect">${backurl}</result>
+            <result name="error" type="tiles">userhome.def</result>
+        </action>
+        <action name="addcartwish" class="com.action.Cart" method="addfromwish">
+            <result name="success" type="chain">wishlist</result>
+            <result name="error" type="tiles">userhome.def</result>
+        </action>
+        
+        <action name="sendotp" class="com.action.SendOTP">
+            <result name="success" type="tiles">verifyuser.def</result>
+            
+            <result name="error" type="tiles">userhome.def</result>
+        </action>
+        
+        <action name="deletecart" class="com.action.Cart" method="deletecart">
+            <result name="success" type="redirect">viewcart</result>
+        </action>
+        <action name="viewcart" class="com.action.ViewCart">
+            <result name="success" type="tiles">showcart.def</result>
+            <result name="error" type="tiles">nocart.def</result>
+        </action>
+
+        <action name="verify" class="com.action.SendOTP" method="verifyUser">
+            <result name="success" type="tiles">verifyuser1.def</result>
+            <result name="input" type="tiles">verifyuser.def</result>
+            <result name="error" type="tiles">verifyuser.def</result>
+        </action>
+        
+        <action name="wishlist" class="com.action.WishList">
+            <result name="success" type="tiles">mywishlist.def</result>
+            <result name="error" type="tiles">userhome.def</result>
+        </action>
+        <action name="addwishlist?*" class="com.action.WishList" method="addWishlist">
+            <result name="success" type="tiles">userhome1.def</result>
+            <result name="error" type="tiles">userhome.def</result>
+        </action>
+        <action name="saddwishlist?*" class="com.action.WishList" method="addWishlist">
+            <result name="success" type="tiles">searchresult.def</result>
+            <result name="error" type="tiles">userhome.def</result>
+        </action>
+        <action name="paddwishlist?*" class="com.action.WishList" method="addWishlist">
+            <result name="success" type="redirect">${backurl}</result>
+            <result name="error" type="tiles">userhome.def</result>
+        </action>
+        <action name="removewishlist?*" class="com.action.WishList" method="removeWishlist">
+            <result name="success" type="tiles">mywishlist.def</result>
+            <result name="error" type="tiles">userhome.def</result>
+        </action>
+        <action name="instapay" class="com.instamojo.wrapper.api.InstaPay">
+            <result name="foo" type="redirect">${targetUrl}</result>
+        </action>
+        <action name="productdetail?*" class="com.action.ProductDetail" method="getProductDetail">
+            <result name="success" type="tiles">productdetail.def</result>
+        </action>
+        <action name="submitcomment?*" class="com.action.CommentsController" method="setComment">
+            <result name="success" type="redirect">${targetUrl}</result>
+            <result name="input" type="tiles">productdetail.def</result>
+        </action>
+        <action name="stockcheck" class="com.action.Cart" method="stockCheck">
+            <result name="success" type="tiles">paymethod.def</result>
+            <result name="error" type="tiles">showcart.def</result>
+        </action>
+        <action name="paymethod" class="com.action.Checkout" method="checkpaymethod">
+            <result name="cod" type="chain">cod</result>
+            <result name="instamojo" type="chain">instapay</result>
+        </action>
+        <action name="cod" class="com.action.Checkout" method="cod">
+            <result name="success" type="tiles">checkoutcod.def</result>
+        </action>
+    </package>
+</struts>

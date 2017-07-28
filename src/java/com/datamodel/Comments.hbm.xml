@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 2, 2017 5:14:33 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.datamodel.Comments" table="COMMENTS" schema="SHOPPING_CART" optimistic-lock="version">
+        <id name="commentid" type="int">
+            <column name="COMMENTID" precision="5" scale="0" />
+            <generator class="increment" />
+        </id>
+        <many-to-one name="customer" class="com.datamodel.Customer" fetch="select">
+            <column name="USERID" precision="5" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="product" class="com.datamodel.Product" fetch="select">
+            <column name="PRODUCTID" precision="5" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="title" type="string">
+            <column name="TITLE" length="50" />
+        </property>
+        <property name="body" type="string">
+            <column name="DESCRIPTION" length="200" not-null="true" />
+        </property>
+        <property name="commenttime" type="timestamp">
+            <column name="COMMENTTIME" not-null="true" />
+        </property>
+        <property name="rating" type="float">
+            <column name="RATING"/>
+        </property>
+    </class>
+</hibernate-mapping>

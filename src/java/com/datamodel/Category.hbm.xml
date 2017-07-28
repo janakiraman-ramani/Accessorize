@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 2, 2017 5:14:33 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.datamodel.Category" table="CATEGORY" schema="SHOPPING_CART" optimistic-lock="version">
+        <id name="categoryid" type="int">
+            <column name="CATEGORYID" precision="5" scale="0" />
+            <generator class="increment" />
+        </id>
+        <property name="name" type="string">
+            <column name="NAME" length="30" not-null="true" />
+        </property>
+        <property name="photo" type="binary">
+            <column name="PHOTO"/>
+        </property>
+        <set name="subcategories" table="SUBCATEGORY" inverse="true" lazy="true" cascade="delete" fetch="select">
+            <key>
+                <column name="SUBCATEGORYID" precision="5" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.datamodel.Subcategory" />
+        </set>
+    </class>
+</hibernate-mapping>

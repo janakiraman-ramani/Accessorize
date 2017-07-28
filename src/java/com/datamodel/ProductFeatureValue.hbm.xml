@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 2, 2017 5:14:33 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.datamodel.ProductFeatureValue" table="PRODUCTFEATUREVALUE" schema="SHOPPING_CART" optimistic-lock="version">
+        <id name="productFeatureValueid" type="int">
+            <column name="PRODUCTFEATUREVALUEID" precision="5" scale="0" />
+            <generator class="increment" />
+        </id>
+        <many-to-one name="product" class="com.datamodel.Product" lazy="false" fetch="select">
+            <column name="PRODUCTID" precision="5" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="featureValue" class="com.datamodel.FeatureValue" lazy="false" fetch="select">
+            <column name="FEATUREVALUEID" precision="5" scale="0" not-null="true" />
+        </many-to-one>
+        
+    </class>
+</hibernate-mapping>

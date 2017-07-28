@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="hibernate.dialect">org.hibernate.dialect.OracleDialect</property>
+    <property name="hibernate.connection.driver_class">oracle.jdbc.OracleDriver</property>
+    <property name="hibernate.connection.url">jdbc:oracle:thin:@localhost:1521:XE</property>
+    <property name="hibernate.connection.username">shopping_cart</property>
+    <property name="hibernate.connection.password">rjvirus100</property>
+    <property name="hibernate.search.default.directory_provider">filesystem</property>
+    <property name="hibernate.search.default.indexBase">C:\TEMP\searchIndex</property>
+    <property name="show_sql">true</property>
+    <property name="hibernate.hbm2ddl.auto">update</property>
+    <mapping resource="com/datamodel/Customer.hbm.xml"/>
+    <mapping resource="com/datamodel/Admin.hbm.xml"/>
+    <mapping resource="com/datamodel/Product.hbm.xml"/>
+    <mapping resource="com/datamodel/Orderform.hbm.xml"/>
+    <mapping resource="com/datamodel/Comments.hbm.xml"/>
+    <mapping resource="com/datamodel/Orderitem.hbm.xml"/>
+    <mapping resource="com/datamodel/Wishlist.hbm.xml"/>
+    <mapping resource="com/datamodel/Feedback.hbm.xml"/>
+    <mapping resource="com/datamodel/Category.hbm.xml"/>
+    <mapping resource="com/datamodel/Colour.hbm.xml"/>
+    <mapping resource="com/datamodel/ProductPhoto.hbm.xml"/>
+    <mapping resource="com/datamodel/Subcategory.hbm.xml"/>
+    <mapping resource="com/datamodel/Subcategory1.hbm.xml"/>
+  </session-factory>
+</hibernate-configuration>

@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 2, 2017 5:14:33 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.datamodel.Product" table="PRODUCT" schema="SHOPPING_CART" optimistic-lock="version">
+        <id name="productid" type="int">
+            <column name="PRODUCTID" precision="5" scale="0" />
+            <generator class="increment" />
+        </id>
+        <property name="name" type="string">
+            <column name="NAME" length="50" not-null="true" />
+        </property>
+        <property name="brand" type="string">
+            <column name="BRAND" length="50" not-null="true" />
+        </property>
+        <many-to-one name="subcategory1" class="com.datamodel.Subcategory1" lazy="false" fetch="select">
+            <column name="SUBCATEGORY1ID" precision="5" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="colour" class="com.datamodel.Colour" lazy="false" fetch="select">
+            <column name="COLOURID" precision="5" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="price" type="int">
+            <column name="PRICE" precision="5" scale="0" not-null="true" />
+        </property>
+        <property name="stock" type="int">
+            <column name="STOCK" precision="5" scale="0" not-null="true" />
+        </property>
+        <property name="description" type="string">
+            <column name="DESCRIPTION" length="500" not-null="true" />
+        </property>
+        <set name="orderitems" table="ORDERITEM" inverse="true" lazy="true" cascade="delete" fetch="select">
+            <key>
+                <column name="PRODUCTID" precision="5" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.datamodel.Orderitem" />
+        </set>
+        <set name="wishlists" table="WISHLIST" inverse="true" lazy="true" cascade="delete" fetch="select">
+            <key>
+                <column name="PRODUCTID" precision="5" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.datamodel.Wishlist" />
+        </set>
+        <set name="commentses" table="COMMENTS" inverse="true" lazy="true" cascade="delete" fetch="select">
+            <key>
+                <column name="PRODUCTID" precision="5" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.datamodel.Comments" />
+        </set>
+        <set name="productPhotos" table="PRODUCTPHOTO" inverse="true" lazy="true" cascade="delete" fetch="select">
+            <key>
+                <column name="PRODUCTPHOTOID" precision="5" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.datamodel.ProductPhoto" />
+        </set>
+    </class>
+</hibernate-mapping>

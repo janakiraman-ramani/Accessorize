@@ -1,0 +1,54 @@
+<!DOCTYPE validators PUBLIC "-//Apache Struts//XWork Validator 1.0.3//EN"
+ "http://struts.apache.org/dtds/xwork-validator-1.0.3.dtd">
+
+<validators>
+
+    <field name="name">  
+          <field-validator type="requiredstring">  
+            <param name="trim">true</param>  
+            <message>**NAME required</message>  
+       </field-validator>  
+    </field>  
+    
+    <field name="email">  
+          <field-validator type="requiredstring">  
+            <param name="trim">true</param>  
+            <message>**EMAIL required</message>  
+          </field-validator>
+        <field-validator type="email">  
+            <message>**Not a valid EMAIL required</message>  
+          </field-validator>  
+    </field>
+    
+    <field name="password">  
+          <field-validator type="requiredstring">  
+            <param name="trim">true</param>  
+            <message>**PASSWORD required</message>  
+       </field-validator>  
+    </field>
+    
+    <field name="address">  
+          <field-validator type="requiredstring">  
+            <param name="trim">true</param>  
+            <message>**ADDRESS required</message>  
+          </field-validator> 
+    </field>  
+    <field name="city">  
+          <field-validator type="requiredstring">  
+            <param name="trim">true</param>  
+            <message>**CITY required</message>  
+          </field-validator> 
+    </field>
+    <field name="phone">  
+          <field-validator type="requiredstring">  
+            <param name="trim">true</param>  
+            <message>**PHONE required</message>  
+          </field-validator>
+    </field>
+ 
+    <validator type="stringlength">  
+              <param name="fieldName">phone</param>  
+              <param name="minLength">10</param>
+              <message>**Invalid PHONE</message>  
+          </validator>
+</validators>

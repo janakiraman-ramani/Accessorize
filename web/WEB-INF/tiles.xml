@@ -1,0 +1,168 @@
+
+<!DOCTYPE tiles-definitions PUBLIC
+   "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+   "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+
+<tiles-definitions>
+    <definition name="adminbaseLayout" template="/adminbaseLayout.jsp">
+      <put-attribute name="title"  value=""/>
+      <put-attribute name="header" value="/header/adminHeader.jsp"/>
+      <put-attribute name="body" value=""/>
+      <put-attribute name="footer" value="/footer/adminFooter.jsp"/>
+   </definition>
+   
+   <definition name="adminlogin.def" extends="adminbaseLayout">
+      <put-attribute name="title" value="Administrator Login"/>
+      <put-attribute name="body" value="/body/admin/adminlogin.jsp"/>      
+   </definition>
+   
+   <definition name="adminhome.def" extends="adminbaseLayout">
+      <put-attribute name="title" value="Welcome Admin"/>
+      <put-attribute name="body" value="/body/admin/adminhome.jsp"/>      
+   </definition>
+   
+   <definition name="admininsert.def" extends="adminbaseLayout">
+      <put-attribute name="title" value="Add Products"/>
+      <put-attribute name="body" value="/body/admin/admininsert.jsp"/>
+   </definition>
+   
+   <definition name="admindelete.def" extends="adminbaseLayout">
+      <put-attribute name="title" value="Delete Products"/>
+      <put-attribute name="body" value="/body/admin/admindelete.jsp"/>
+   </definition>
+   <definition name="admindelete1.def" extends="adminbaseLayout">
+      <put-attribute name="title" value="Delete Products"/>
+      <put-attribute name="body" value="/body/admin/admindelete1.jsp"/>
+   </definition>
+   
+   <definition name="adminupdate.def" extends="adminbaseLayout">
+      <put-attribute name="title" value="Update Products"/>
+      <put-attribute name="body" value="/body/admin/adminupdate.jsp"/>
+   </definition>
+   <definition name="adminupdate1.def" extends="adminbaseLayout">
+      <put-attribute name="title" value="Update Products"/>
+      <put-attribute name="body" value="/body/admin/adminupdate1.jsp"/>
+   </definition>
+   <definition name="adminupdate2.def" extends="adminbaseLayout">
+      <put-attribute name="title" value="Update Products"/>
+      <put-attribute name="body" value="/body/admin/adminupdate2.jsp"/>
+   </definition>
+   <definition name="adminview.def" extends="adminbaseLayout">
+      <put-attribute name="title" value="Update Products"/>
+      <put-attribute name="body" value="/body/admin/adminview.jsp"/>
+   </definition>
+   
+   <definition name="userbaseLayout" template="/userbaseLayout.jsp">
+      <put-attribute name="title"  value=""/>
+      <put-attribute name="header" value="/header/userHeader.jsp"/>
+      <put-attribute name="body" value=""/>
+      <put-attribute name="footer" value="/footer/userFooter.jsp"/>
+   </definition>
+   
+   <definition name="userhome.def" extends="userbaseLayout">
+      <put-attribute name="title" value="Home"/>
+      <put-attribute name="body" value="/body/user/userhome.jsp"/>
+   </definition>
+   
+   <definition name="userhome1.def" extends="userbaseLayout">
+      <put-attribute name="title" value="theBookworm.com"/>
+      <put-attribute name="body" value="/body/user/userhome1.jsp"/>
+   </definition>
+   
+   <definition name="userlogin.def" extends="userbaseLayout">
+      <put-attribute name="title" value="Login Details"/>
+      <put-attribute name="body" value="/body/user/userlogin.jsp"/>
+   </definition>
+   <definition name="userregister.def" extends="userbaseLayout">
+      <put-attribute name="title" value="Register Here"/>
+      <put-attribute name="body" value="/body/user/userregister.jsp"/>
+   </definition>
+   <definition name="userregister1.def" extends="userbaseLayout">
+      <put-attribute name="title" value="Registration Successfull"/>
+      <put-attribute name="body" value="/body/user/userregister1.jsp"/>
+   </definition>
+   
+   <definition name="showcart.def" extends="userbaseLayout">
+      <put-attribute name="title" value="Your Cart"/>
+      <put-attribute name="body" value="/body/user/showcart.jsp"/>
+   </definition>
+   
+   <definition name="nocart.def" extends="userbaseLayout">
+      <put-attribute name="title" value="Your Cart"/>
+      <put-attribute name="body" value="/body/user/nocart.jsp"/>
+   </definition>
+   
+   <definition name="checkout.def" extends="userbaseLayout">
+      <put-attribute name="title" value="Check out"/>
+      <put-attribute name="body" value="/body/user/checkout.jsp"/>
+   </definition>
+   
+   <definition name="myorder.def" extends="userbaseLayout">
+      <put-attribute name="title" value="My Orders"/>
+      <put-attribute name="body" value="/body/user/myorder.jsp"/>
+   </definition>
+   
+   <definition name="adminvieworders.def" extends="adminbaseLayout">
+      <put-attribute name="title" value="My Profile"/>
+      <put-attribute name="body" value="/body/admin/adminvieworders.jsp"/>
+   </definition>
+   
+   <definition name="verifyuser.def" extends="userbaseLayout">
+      <put-attribute name="title" value="Verify Email"/>
+      <put-attribute name="body" value="/body/user/verifyuser.jsp"/>
+   </definition>
+   
+   <definition name="verifyuser1.def" extends="userbaseLayout">
+      <put-attribute name="title" value="Verified Successfully"/>
+      <put-attribute name="body" value="/body/user/verifyuser1.jsp"/>
+   </definition>
+   <definition name="mywishlist.def" extends="userbaseLayout">
+      <put-attribute name="title" value="Your Wishlist"/>
+      <put-attribute name="body" value="/body/user/mywishlist.jsp"/>
+   </definition>
+   <definition name="myprofile.def" extends="userbaseLayout">
+      <put-attribute name="title" value="Your Wishlist"/>
+      <put-attribute name="body" value="/body/user/myprofile.jsp"/>
+   </definition>
+   <definition name="myprofile1.def" extends="userbaseLayout">
+      <put-attribute name="title" value="Your Wishlist"/>
+      <put-attribute name="body" value="/body/user/myprofile1.jsp"/>
+   </definition>
+   <definition name="paymethod.def" extends="userbaseLayout">
+      <put-attribute name="title" value="Payment Page"/>
+      <put-attribute name="body" value="/body/user/paymethod.jsp"/>
+   </definition>
+   
+   <definition name="searchresult.def" extends="userbaseLayout">
+      <put-attribute name="title" value="Search Results"/>
+      <put-attribute name="body" value="/body/user/searchresult.jsp"/>
+   </definition>
+   
+   <definition name="nosearchresult.def" extends="userbaseLayout">
+      <put-attribute name="title" value="Search Results"/>
+      <put-attribute name="body" value="/body/user/nosearchresult.jsp"/>
+   </definition>
+   
+   <definition name="productdetail.def" extends="userbaseLayout">
+      <put-attribute name="title" value="Search Results"/>
+      <put-attribute name="body" value="/body/user/productdetail.jsp"/>
+   </definition>
+   
+    <definition name="feedback.def" extends="userbaseLayout">
+      <put-attribute name="title" value="Feedback Form"/>
+      <put-attribute name="body" value="/body/user/feedback.jsp"/>
+   </definition>
+   <definition name="checkoutcod.def" extends="userbaseLayout">
+      <put-attribute name="title" value="Order Confirmation"/>
+      <put-attribute name="body" value="/body/user/checkoutcod.jsp"/>
+   </definition>
+   <definition name="forgotpass.def" extends="userbaseLayout">
+      <put-attribute name="title" value="Help - Forgot Password"/>
+      <put-attribute name="body" value="/body/user/forgotpass.jsp"/>
+   </definition>
+   <definition name="forgotpass1.def" extends="userbaseLayout">
+      <put-attribute name="title" value="Help - Forgot Password"/>
+      <put-attribute name="body" value="/body/user/forgotpass1.jsp"/>
+   </definition>
+   
+</tiles-definitions>

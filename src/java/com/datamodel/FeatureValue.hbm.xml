@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 2, 2017 5:14:33 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.datamodel.FeatureValue" table="FEATUREVALUE" schema="SHOPPING_CART" optimistic-lock="version">
+        <id name="FeatureValueid" type="int">
+            <column name="FEATUREVALUEID" precision="5" scale="0" />
+            <generator class="increment" />
+        </id>
+        
+        <many-to-one name="features" class="com.datamodel.FEATURE" lazy="false" fetch="select">
+            <column name="FEATUREID" precision="5" scale="0" not-null="true" />
+        </many-to-one>
+        
+        <property name="name" type="string">
+            <column name="NAME" length="50" not-null="true"/>
+        </property>
+        
+        <set name="productFeatureValues" table="PRODUCTFEATUREVALUE" inverse="true" lazy="true" cascade="delete" fetch="select">
+            <key>
+                <column name="PRODUCTFEATUREVALUEID" precision="5" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.datamodel.ProductFeatureValue" />
+        </set>
+        
+        <set name="categoryFeatureValues" table="CATEGORYFEATUREVALUE" inverse="true" lazy="true" cascade="delete" fetch="select">
+            <key>
+                <column name="CATEGORYFEATUREVALUEID" precision="5" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.datamodel.CategoryFeatureValue" />
+        </set>
+    </class>
+</hibernate-mapping>

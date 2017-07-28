@@ -1,0 +1,53 @@
+<!DOCTYPE validators PUBLIC "-//Apache Struts//XWork Validator 1.0.3//EN"
+ "http://struts.apache.org/dtds/xwork-validator-1.0.3.dtd">
+ 
+<validators>
+
+    <field name="name">  
+          <field-validator type="requiredstring">  
+            <param name="trim">true</param>  
+            <message>**NAME required</message>  
+       </field-validator>  
+    </field>  
+    
+    <field name="brand">  
+          <field-validator type="requiredstring">  
+            <param name="trim">true</param>  
+            <message>**BRAND required</message>  
+       </field-validator>  
+    </field>
+    <field name="subcategory1">
+          <field-validator type="int">
+              <param name="min">1</param>
+              <message>Please Select a value to continue</message>
+          </field-validator>
+    </field>
+    
+    <field name="colour">
+          <field-validator type="int">
+              <param name="min">1</param>
+              <message>Please Select a value to continue</message>
+          </field-validator>
+    </field>
+
+    <validator type="int">  
+              <param name="fieldName">price</param>  
+              <param name="min">1</param>  
+              <param name="max">99999</param>  
+              <message>**PRICE must be between ${min} and ${max}</message>  
+    </validator> 
+    
+    <validator type="int">  
+              <param name="fieldName">stock</param>  
+              <param name="min">1</param>  
+              <message>**STOCK Required</message>  
+    </validator>
+    
+    <field name="description">  
+          <field-validator type="requiredstring">  
+            <param name="trim">true</param>  
+            <message>**description required</message>  
+          </field-validator> 
+    </field>  
+ 
+</validators>

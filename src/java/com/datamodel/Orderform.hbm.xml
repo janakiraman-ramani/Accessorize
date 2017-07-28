@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 2, 2017 5:14:33 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.datamodel.Orderform" table="ORDERFORM" schema="SHOPPING_CART" optimistic-lock="version">
+        <id name="orderformid" type="int">
+            <column name="ORDERFORMID" precision="5" scale="0" />
+            <generator class="increment" />
+        </id>
+        <many-to-one name="customer" class="com.datamodel.Customer" lazy="false" fetch="select">
+            <column name="USERID" precision="5" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="total" type="int">
+            <column name="TOTAL" precision="5" scale="0" not-null="true" />
+        </property>
+        <property name="orderdate" type="timestamp">
+            <column name="ORDERDATE" not-null="true" />
+        </property>
+        <property name="status" type="string">
+            <column name="STATUS" length="20" not-null="false" />
+        </property>
+        <property name="paymethod" type="string">
+            <column name="PAYMETHOD" length="30" not-null="true" />
+        </property>
+        <property name="payment_id" type="string">
+            <column name="PAYMENTID" length="70" not-null="false" />
+        </property>
+        <property name="payment_request_id" type="string">
+            <column name="PAYMENTREQUESTID" length="70" not-null="false" />
+        </property>
+        <property name="transaction_id" type="string">
+            <column name="TRANSACTIONID" length="70" not-null="false" />
+        </property>
+        <set name="orderitems" table="ORDERITEM" inverse="true" lazy="false" cascade="delete" fetch="select">
+            <key>
+                <column name="ORDERFORMID" precision="5" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.datamodel.Orderitem" />
+        </set>
+    </class>
+</hibernate-mapping>
